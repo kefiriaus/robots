@@ -28,6 +28,9 @@ ruby --version
 
 fi
 
-gem install rails -V
+ln -s /usr/local/bin/gem /usr/bin/gem
+ln -s /usr/local/rvm/bin/rvm /usr/bin/rvm
+
+gem install rails
 #gem install passenger
 #passenger-install-apache2-module
