@@ -1,0 +1,45 @@
+#! /usr/bin/env lua
+
+require("fs")
+
+local files = function(mask)
+	local list = {}
+	local i = 0
+	local tmp = "/tmp/.ls.buffer"
+
+	os.execute("ls -la "..mask.." > "..tmp)	
+	local f = io.open(tmp)
+	if not f then return list end
+
+	for line in f:lines() do
+		if line ~= '.' and line ~= '..' then
+			list[i] = line
+			i++
+		end
+	end
+
+	f:close()
+	return list
+end
+
+# Dirs
+local www = "/var/www"
+local buffer = www.."/.buffer"
+local git = www.."/git"
+local framework = git.."/nodejs/framework"
+local master = framework.."/master"
+local work = framework.."/dev-work"
+local home = framework.."/dev-home"
+
+# Tar.gz files
+local gzMaster = "nodejs%.framework%.master"
+local gzWork = "nodejs%.framework%.dev%.work"
+local gzHome = "nodejs%.framework%.dev%.home"
+
+for file in files(buffer) do
+	if string.find(line, "nodejs%.framework%.dev%.work%.tar") then
+		os.execute("tar -xf "..buffer)
+	end
+end
+if os.execute("ls -la /var/www/.buffer/") ~= 0 then 
+	
