@@ -2,17 +2,17 @@ echo "========================"
 echo "Installing Ruby On Rails"
 echo "========================"
 
-RUBY_VERSION=`ruby --version | sed -n '/ruby 2\.1\.2/Ip'`
+#RUBY_VERSION=`ruby --version | sed -n '/ruby 2\.1\.2/Ip'`
 
-if [[ "$RUBY_VERSION" == "" ]];then
+#if [[ "$RUBY_VERSION" == "" ]];then
 
 #Step 1: Install Required Packages
-sudo yum -y install gcc-c++ patch readline readline-devel zlib zlib-devel
-sudo yum -y install libyaml-devel libffi-devel openssl-devel make
-sudo yum -y install bzip2 autoconf automake libtool bison iconv-devel
+#sudo yum -y install gcc-c++ patch readline readline-devel zlib zlib-devel
+#sudo yum -y install libyaml-devel libffi-devel openssl-devel make
+#sudo yum -y install bzip2 autoconf automake libtool bison iconv-devel
 
 #Step 2: Install RVM
-curl -sSL https://get.rvm.io | bash -s stable --rails
+curl -sSL https://get.rvm.io | bash -s stable --rails --autolibs=enabled
 #curl -L get.rvm.io | bash -s stable
 
 #Step 3: Setup RVM Environment
@@ -27,7 +27,7 @@ curl -sSL https://get.rvm.io | bash -s stable --rails
 #Step 6: Check Current Ruby Version.
 ruby --version
 
-fi
+#fi
 
 source /usr/local/rvm/scripts/rvm
 
